@@ -8,4 +8,5 @@
   <p>{{server.id}}</p>
 </div>
 
-<input type="text" class="form-control w-25" (input)="onCheckInputEvent($event)">
+<input type="text" class="form-control w-25" ngModel #username = "ngModel">
+<h1>{{username.value}}</h1>

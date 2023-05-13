@@ -7,6 +7,7 @@ import {ServerComponent} from './server/server.component';
 import {ServersComponent} from './servers/servers.component';
 import {NgOptimizedImage} from "@angular/common";
 import {LoadingBarModule} from "@ngx-loading-bar/core";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {LoadingBarModule} from "@ngx-loading-bar/core";
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
-    LoadingBarModule
+    LoadingBarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

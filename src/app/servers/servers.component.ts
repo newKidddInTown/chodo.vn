@@ -10,11 +10,10 @@ import {LoadingBarService} from "@ngx-loading-bar/core";
 export class ServersComponent {
 
   servers: Array<Server> = [];
-
   constructor(private loadingBar: LoadingBarService) {
   }
 
-  addServer(event : any) {
+  addServer(event: any) {
     this.loadingBar.start();
     setTimeout(() => {
       this.servers.push(new Server());
@@ -28,9 +27,5 @@ export class ServersComponent {
       this.servers.pop();
       this.loadingBar.stop();
     }, 1000);
-  }
-
-  onCheckInputEvent( $event : Event) {
-    console.log($event)
   }
 }
