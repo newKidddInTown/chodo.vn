@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- WRITE YOUR CONTENT BELOW-->
+      <button class="btn btn-info" (click)="toggleGhost()">
+        {{ghostEnable ? 'Hide ghost' : 'Show ghost'}}
+      </button>
+      <div>
+        <app-ghost *ngIf="ghostEnable"></app-ghost>
+      </div>
+    </div>
+  </div>
+</div>

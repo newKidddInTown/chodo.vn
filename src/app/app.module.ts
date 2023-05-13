@@ -8,12 +8,16 @@ import {ServersComponent} from './servers/servers.component';
 import {NgOptimizedImage} from "@angular/common";
 import {LoadingBarModule} from "@ngx-loading-bar/core";
 import {FormsModule} from "@angular/forms";
+import { UserComponent } from './user/user.component';
+import { GhostComponent } from './ghost/ghost.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
-    ServersComponent
+    ServersComponent,
+    UserComponent,
+    GhostComponent
   ],
   imports: [
     BrowserModule,
