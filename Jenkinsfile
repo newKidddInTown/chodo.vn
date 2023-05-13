@@ -1,29 +1,30 @@
 pipeline {
   agent any
   stages {
+    stage ('Build') {
+      steps {
+        scripts {
+          sh 'npm install'
+          sh 'rm -rf dist'
+          sh 'ng build --prod'
+        }
+      }
+    }
 
-    stage('Clean docker containers'){
-      steps{
-          script{
-              def doc_containers = sh(returnStdout: true, script: 'docker container ps -aq').replaceAll("\n", " ")
-              if (doc_containers) {
-                  sh "docker stop ${doc_containers}"
-              }
+    stage('Kill old task') {
+      steps {
+          script {
+              sh 'pkill -f "ng serve"'
           }
       }
     }
 
-    stage ('Remove old images') {
-       steps {
-         sh 'docker image prune'
-      }
-    }
-
-    stage('Deploy') {
+    stage('Start') {
       steps {
-        script {
-          sh 'docker-compose up -d'
-        }
+          script {
+              // Start a new Angular app
+              sh 'ng serve --port 4200 --open'
+          }
       }
     }
   }
