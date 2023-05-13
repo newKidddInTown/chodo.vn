@@ -1,12 +1,19 @@
-<ngx-loading-bar></ngx-loading-bar>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ngx-loading-bar></ngx-loading-bar>
 
-<button class="btn btn-info" (click)="addServer($event)"> Add server </button>
-<button class="btn btn-danger" (click)="removeServer()"> Remove server </button>
+      <button class="btn btn-info" (click)="addServer($event)"> Add server </button>
+      <button class="btn btn-danger" (click)="removeServer()"> Remove server </button>
 
-<div *ngFor="let server of servers">
-  <app-server></app-server>
-  <p>{{server.id}}</p>
+      <div *ngFor="let server of servers">
+        <app-server></app-server>
+        <p>{{server.id}}</p>
+      </div>
+
+      <input type="text" class="form-control w-25" ngModel #username = "ngModel">
+      <h1>{{username.value}}</h1>
+
+    </div>
+  </div>
 </div>
-
-<input type="text" class="form-control w-25" ngModel #username = "ngModel">
-<h1>{{username.value}}</h1>
