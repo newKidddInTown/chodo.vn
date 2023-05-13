@@ -15,7 +15,7 @@ pipeline {
 
     stage ('Remove old images') {
        steps {
-         sh 'docker image prune'
+         sh 'docker image rm duclv1132/chodo:v1'
       }
     }
 
