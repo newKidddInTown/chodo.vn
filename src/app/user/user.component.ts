@@ -25,4 +25,10 @@ export class UserComponent {
         "color" : "white"
       }
   }
+
+  styleTheInput(value: any) {
+    return {
+      "width" : value + 'cm'
+    };
+  }
 }

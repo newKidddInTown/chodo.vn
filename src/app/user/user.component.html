@@ -2,30 +2,19 @@
   <div class="row">
     <div class="col-xs-12">
       <!-- WRITE YOUR CONTENT BELOW-->
-      <button class="btn btn-info"
-              [ngStyle]="styleButtonBaby()"
-              (click)="toggleGhost()"
-      >
-        {{ghostEnable ? 'Show baby' : 'Show ghost'}}
-      </button>
+      <button class="btn btn-info" [ngStyle]="styleButtonBaby()" (click)="toggleGhost()">{{ghostEnable ? 'Show baby' : 'Show ghost'}}</button>
       <div>
         <app-ghost *ngIf="ghostEnable; else baby"></app-ghost>
-        <ng-template #baby>
-          <app-baby></app-baby>
-        </ng-template>
+        <ng-template #baby><app-baby></app-baby></ng-template>
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="checkbox"
-               value="" id="flexCheckChecked" checked
-               ngModel #check="ngModel"
-               [ngModelOptions]="{'standalone' : true}">
-        <label class="form-check-label" for="flexCheckChecked">
-          Short input
-        </label>
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked ngModel #isShort="ngModel" [ngModelOptions]="{'standalone' : true}">
+        <label class="form-check-label" for="flexCheckChecked">Short input</label>
       </div>
-
-      <input type="text" [ngClass]="{'w-25' : check.value}" class="form-control">
+      <input type="number" class="form-control w-50" placeholder="Type the length below (cm)" ngModel #length = "ngModel">
+      <hr>
+      <input type="text" [ngClass]="{'w-25' : isShort.value}" class="form-control" [ngStyle]="styleTheInput(length.value)" placeholder="You can change the length of this input by change the options above...">
     </div>
   </div>
 </div>
