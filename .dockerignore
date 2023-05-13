@@ -1,0 +1,5 @@
+.dockerignore
+.angular
+.vscode
+.editorconfig
+README.md
