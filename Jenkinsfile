@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-        scripts {
+        script {
           sh 'npm install'
           sh 'rm -rf dist'
           sh 'ng build --prod'
