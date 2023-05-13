@@ -1,9 +1,11 @@
 <ngx-loading-bar></ngx-loading-bar>
 
-<button class="btn btn-info" (click)="addServer()"> Add server </button>
+<button class="btn btn-info" (click)="addServer($event)"> Add server </button>
 <button class="btn btn-danger" (click)="removeServer()"> Remove server </button>
 
 <div *ngFor="let server of servers">
   <app-server></app-server>
   <p>{{server.id}}</p>
 </div>
+
+<input type="text" class="form-control w-25" (input)="onCheckInputEvent($event)">

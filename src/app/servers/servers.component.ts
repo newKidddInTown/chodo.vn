@@ -14,7 +14,7 @@ export class ServersComponent {
   constructor(private loadingBar: LoadingBarService) {
   }
 
-  addServer() {
+  addServer(event : any) {
     this.loadingBar.start();
     setTimeout(() => {
       this.servers.push(new Server());
@@ -28,5 +28,9 @@ export class ServersComponent {
       this.servers.pop();
       this.loadingBar.stop();
     }, 1000);
+  }
+
+  onCheckInputEvent( $event : Event) {
+    console.log($event)
   }
 }
