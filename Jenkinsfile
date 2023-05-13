@@ -9,7 +9,7 @@ pipeline {
         script {
           sh 'npm install'
           sh 'rm -rf dist'
-          sh 'ng build --prod'
+          sh 'npm run ng build --prod'
         }
       }
     }
@@ -26,7 +26,7 @@ pipeline {
       steps {
           script {
               // Start a new Angular app
-              sh 'ng serve --port 4200 --open'
+              sh 'npm run ng serve --port 4200 --open'
           }
       }
     }
