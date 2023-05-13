@@ -2,7 +2,10 @@
   <div class="row">
     <div class="col-xs-12">
       <!-- WRITE YOUR CONTENT BELOW-->
-      <button class="btn btn-info" (click)="toggleGhost()">
+      <button class="btn btn-info"
+              [ngStyle]="styleButtonBaby()"
+              (click)="toggleGhost()"
+      >
         {{ghostEnable ? 'Show baby' : 'Show ghost'}}
       </button>
       <div>
