@@ -10,6 +10,7 @@ import {LoadingBarModule} from "@ngx-loading-bar/core";
 import {FormsModule} from "@angular/forms";
 import { UserComponent } from './user/user.component';
 import { GhostComponent } from './ghost/ghost.component';
+import { BabyComponent } from './baby/baby.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GhostComponent } from './ghost/ghost.component';
     ServerComponent,
     ServersComponent,
     UserComponent,
-    GhostComponent
+    GhostComponent,
+    BabyComponent
   ],
   imports: [
     BrowserModule,

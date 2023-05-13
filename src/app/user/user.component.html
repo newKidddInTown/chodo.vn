@@ -3,10 +3,13 @@
     <div class="col-xs-12">
       <!-- WRITE YOUR CONTENT BELOW-->
       <button class="btn btn-info" (click)="toggleGhost()">
-        {{ghostEnable ? 'Hide ghost' : 'Show ghost'}}
+        {{ghostEnable ? 'Show baby' : 'Show ghost'}}
       </button>
       <div>
-        <app-ghost *ngIf="ghostEnable"></app-ghost>
+        <app-ghost *ngIf="ghostEnable; else baby"></app-ghost>
+        <ng-template #baby>
+          <app-baby></app-baby>
+        </ng-template>
       </div>
     </div>
   </div>
