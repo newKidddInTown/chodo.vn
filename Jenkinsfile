@@ -10,12 +10,7 @@ pipeline {
 
     stage ('Remove old images') {
        steps {
-          script {
-            def dockerImage = docker.image('duclv1132/chodo:v1')
-            if (dockerImage != null) {
-                dockerImage.remove() // Remove the old Docker image
-            }
-          }
+         sh 'docker image prune'
       }
     }
 
