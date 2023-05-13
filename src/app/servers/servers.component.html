@@ -1,4 +1,9 @@
+<ngx-loading-bar></ngx-loading-bar>
+
 <button class="btn btn-info" (click)="addServer()"> Add server </button>
 <button class="btn btn-danger" (click)="removeServer()"> Remove server </button>
 
-<app-server *ngFor="let i of serverCount"></app-server>
+<div *ngFor="let server of servers">
+  <app-server></app-server>
+  <p>{{server.id}}</p>
+</div>

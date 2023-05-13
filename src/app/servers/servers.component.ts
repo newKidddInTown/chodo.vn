@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Server} from "./server";
+import {LoadingBarService} from "@ngx-loading-bar/core";
 
 @Component({
   selector: 'app-servers',
@@ -7,13 +9,24 @@ import { Component } from '@angular/core';
 })
 export class ServersComponent {
 
-  serverCount : Array<number> = [];
+  servers: Array<Server> = [];
+
+  constructor(private loadingBar: LoadingBarService) {
+  }
 
   addServer() {
-    this.serverCount.push(1)
+    this.loadingBar.start();
+    setTimeout(() => {
+      this.servers.push(new Server());
+      this.loadingBar.stop();
+    }, 1000);
   }
 
   removeServer() {
-    this.serverCount.pop()
+    this.loadingBar.start();
+    setTimeout(() => {
+      this.servers.pop();
+      this.loadingBar.stop();
+    }, 1000);
   }
 }
