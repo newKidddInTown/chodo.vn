@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+  chodo.vn:
+    build: .
+    image: duclv1132/chodo:v1
+    ports:
+      - "80:80"
