@@ -6,3 +6,4 @@ services:
     image: duclv1132/chodo:v1
     ports:
       - "80:80"
+    container_name: chodo
