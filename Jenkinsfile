@@ -2,9 +2,14 @@ pipeline {
   agent any
   stages {
 
-    stage ('Stop current container') {
-      steps {
-        sh 'docker stop chodo && docker rm chodo'
+    stage('Clean docker containers'){
+      steps{
+          script{
+              def doc_containers = sh(returnStdout: true, script: 'docker container ps -aq').replaceAll("\n", " ")
+              if (doc_containers) {
+                  sh "docker stop ${doc_containers}"
+              }
+          }
       }
     }
 
