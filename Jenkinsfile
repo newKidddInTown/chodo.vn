@@ -1,7 +1,13 @@
 pipeline {
   agent any
-
   stages {
+
+    stage ('Clone') {
+      steps {
+        git 'https://github.com/newKidddInTown/chodo.vn.git'
+      }
+    }
+
     stage ('Remove old images') {
        steps {
           script {
@@ -12,14 +18,13 @@ pipeline {
           }
       }
     }
-  }
 
-  stage('Deploy') {
-    steps {
-      script {
-        sh 'docker compose up -d'
+    stage('Deploy') {
+      steps {
+        script {
+          sh 'docker compose up -d'
+        }
       }
     }
   }
-
 }
