@@ -36,7 +36,7 @@ pipeline {
     stage ('remove old images') {
       steps{
           script{
-              def doc_images = sh(returnStdout: true, script: 'docker images').replaceAll("\n", " ")
+              def doc_images = sh(returnStdout: true, script: 'docker images -aq').replaceAll("\n", " ")
               if (doc_images) {
                   sh "docker rmi ${dock_images}"
               }
