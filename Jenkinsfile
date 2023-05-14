@@ -34,8 +34,13 @@ pipeline {
     }
 
     stage ('remove old images') {
-       steps {
-         sh 'docker image rm duclv1132/chodo:v1'
+      steps{
+          script{
+              def doc_images = sh(returnStdout: true, script: 'docker images').replaceAll("\n", " ")
+              if (doc_images) {
+                  sh "docker rmi ${dock_images}"
+              }
+          }
       }
     }
 
