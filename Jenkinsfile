@@ -2,7 +2,24 @@ pipeline {
   agent any
   stages {
 
-    stage('Clean docker containers'){
+    stage ('clean') {
+      steps {
+        script {
+          sh "rm -rf dist"
+        }
+      }
+    }
+
+    stage ('install package') {
+      steps {
+        script {
+          sh "npm install"
+          sh "npm run build --prod"
+        }
+      }
+    }
+
+    stage ('clean docker containers'){
       steps{
           script{
               def doc_containers = sh(returnStdout: true, script: 'docker container ps -aq').replaceAll("\n", " ")
@@ -13,13 +30,13 @@ pipeline {
       }
     }
 
-    stage ('Remove old images') {
+    stage ('remove old images') {
        steps {
          sh 'docker image rm duclv1132/chodo:v1'
       }
     }
 
-    stage('Deploy') {
+    stage('deploy') {
       steps {
         script {
           sh 'docker compose up -d'
